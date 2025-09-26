@@ -3,7 +3,7 @@ Your Controls' profile that enables you to fly your DA20-C1 with your friend or 
 
 ## How to use
 
-Please be sure you have to install the Yourcontrols. If you don't, you can find it here.
+Please be sure you have to install the Yourcontrols. If you don't, you can find it [here](https://docs.yourcontrols.org).
 
 Open your Yourcontrols directory, download the YAML file and put it into /{yourcontrols directory}/definitions/aircraft
 

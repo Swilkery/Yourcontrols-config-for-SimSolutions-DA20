@@ -1,0 +1,296 @@
+# SimSolutions DA20-C1 Eclipse - Your Controls Profile
+# Version 4.0.2 - Created by Aris Martínez
+# Created for MSFS Your Controls shared cockpit
+
+include:
+  - definitions/modules/Instruments/AS_GNS430.yaml
+  - definitions/modules/Instruments/AS_GTX330.yaml
+  - definitions/modules/controls.yaml
+  - definitions/modules/electrical.yaml
+  - definitions/modules/engines.yaml
+  - definitions/modules/fuel.yaml
+  - definitions/modules/general.yaml
+  - definitions/modules/handling.yaml
+  - definitions/modules/lights.yaml
+  - definitions/modules/navigation.yaml
+  - definitions/modules/payload.yaml
+  - definitions/modules/radios.yaml
+  - definitions/modules/safety.yaml
+  - definitions/modules/trim.yaml
+
+shared:
+  - # Take control priority
+    type: ProgramActionEvent
+    event_name: AUTOPILOT_OFF
+    action: TakeControls
+
+  - # Doors/Interactive Points
+    type: ToggleSwitch
+    var_name: A:INTERACTIVE POINT OPEN:2
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_AIRCRAFT_EXIT
+    event_param: 3
+  -
+    type: ToggleSwitch
+    var_name: A:INTERACTIVE POINT OPEN:3
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_AIRCRAFT_EXIT
+    event_param: 4
+
+  - # Lights
+    type: NumSet
+    var_name: A:LIGHT LANDING
+    var_units: Bool
+    var_type: f64
+    event_name: LANDING_LIGHTS_SET
+  -
+    type: NumSet
+    var_name: A:LIGHT NAV
+    var_units: Bool
+    var_type: f64
+    event_name: NAV_LIGHTS_SET
+  -
+    type: ToggleSwitch
+    var_name: A:LIGHT TAXI
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_TAXI_LIGHTS
+  -
+    type: ToggleSwitch
+    var_name: A:LIGHT BEACON
+    var_units: Bool
+    var_type: f64
+    event_name: TOGGLE_BEACON_LIGHTS
+  -
+    type: ToggleSwitch
+    var_name: A:LIGHT STROBE
+    var_units: Bool
+    var_type: f64
+    event_name: STROBES_TOGGLE
+
+  - # Interior Lighting
+    type: NumSet
+    var_name: A:LIGHT PANEL
+    var_units: Bool
+    var_type: i32
+    event_name: PANEL_LIGHTS_SET
+  -
+    type: NumSet
+    var_name: A:LIGHT GLARESHIELD
+    var_units: Bool
+    var_type: i32
+    event_name: GLARESHIELD_LIGHTS_SET
+  -
+    type: NumSet
+    var_name: A:LIGHT CABIN
+    var_units: Bool
+    var_type: i32
+    event_name: CABIN_LIGHTS_SET
+  -
+    type: NumSet
+    var_name: A:LIGHT POTENTIOMETER:16
+    var_units: Percent
+    var_type: f64
+    event_name: LIGHT_POTENTIOMETER_SET
+    event_param: 16
+    index_reversed: true
+  -
+    type: NumSet
+    var_name: A:LIGHT POTENTIOMETER:3
+    var_units: Percent
+    var_type: f64
+    event_name: LIGHT_POTENTIOMETER_SET
+    event_param: 3
+    index_reversed: true
+
+  - # Engine/Fuel
+    type: NumSet
+    var_name: A:FUEL VALVE OPEN:1
+    var_units: Bool
+    var_type: bool
+    event_name: FUEL_VALVE_OPEN
+    event_param: 1
+  -
+    type: NumSet
+    var_name: A:FUEL PUMP ON:1
+    var_units: Bool
+    var_type: bool
+    event_name: FUEL_PUMP_ON
+    event_param: 1
+
+  - # Electrical
+    type: NumSet
+    var_name: A:ELECTRICAL MASTER BATTERY:1
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_MASTER_BATTERY
+    event_param: 1
+  -
+    type: NumSet
+    var_name: A:GENERAL ENG MASTER ALTERNATOR:1
+    var_units: Bool
+    var_type: bool
+    event_name: TOGGLE_ALTERNATOR1
+
+  - # Parking Brake
+    type: ToggleSwitch
+    var_name: A:BRAKE PARKING POSITION
+    var_units: Bool
+    var_type: bool
+    event_name: PARKING_BRAKES
+
+  - # Radio Frequencies
+    type: NumSet
+    var_name: A:COM ACTIVE FREQUENCY:1
+    var_units: Frequency BCD32
+    var_type: f64
+    event_name: COM_RADIO_SET
+    event_param: 1
+  -
+    type: NumSet  
+    var_name: A:COM STANDBY FREQUENCY:1
+    var_units: Frequency BCD32
+    var_type: f64
+    event_name: COM_STBY_RADIO_SET
+    event_param: 1
+  -
+    type: NumSet
+    var_name: A:NAV ACTIVE FREQUENCY:1
+    var_units: Frequency BCD32
+    var_type: f64
+    event_name: NAV1_RADIO_SET
+  -
+    type: NumSet
+    var_name: A:NAV STANDBY FREQUENCY:1
+    var_units: Frequency BCD32
+    var_type: f64
+    event_name: NAV1_STBY_SET
+  -
+    type: event
+    event_name: COM_RADIO_SWAP
+    event_param: 1
+  -
+    type: event
+    event_name: NAV1_RADIO_SWAP
+
+  - # Transponder
+    type: NumSet
+    var_name: A:TRANSPONDER CODE:1
+    var_units: BCO16
+    var_type: i32
+    event_name: XPNDR_SET
+    event_param: 1
+  -
+    type: NumSet
+    var_name: A:TRANSPONDER STATE:1
+    var_units: Number
+    var_type: i32
+    event_name: XPNDR_SET
+    event_param: 1
+
+  - # Custom Variables - Essential only
+    type: var
+    var_name: L:TABLET_VISIBILITY
+  -
+    type: var
+    var_name: L:CO_PILOT_VISIBILITY
+  -
+    type: var
+    var_name: L:CHOCKS_VISIBILITY
+  -
+    type: var
+    var_name: L:FAIRING_VISIBILITY
+  -
+    type: var
+    var_name: L:FAIRING_VISIBILITY1
+  -
+    type: var
+    var_name: L:SideWindowPIC
+  -
+    type: var
+    var_name: L:SideWindowSIC
+  -
+    type: var
+    var_name: L:EXIT_OPEN_TOGGLE:2
+  -
+    type: var
+    var_name: L:AUDIO_VOL_1
+  -
+    type: var
+    var_name: L:DME VOLUME
+  -
+    type: var
+    var_name: L:SPKR VOLUME
+  -
+    type: var
+    var_name: L:PA VOLUME
+  -
+    type: var
+    var_name: L:PILOT VOLUME
+  -
+    type: var
+    var_name: L:CREW VOLUME
+
+master:
+  - # Primary Flight Controls - Critical for avoiding lag issues
+    type: NumSet
+    var_name: A:GENERAL ENG THROTTLE LEVER POSITION:1
+    var_units: Position 16k
+    var_type: f64
+    event_name: THROTTLE1_SET
+    interpolate: Default
+  -
+    type: NumSet
+    var_name: A:GENERAL ENG MIXTURE LEVER POSITION:1
+    var_units: Position 16k
+    var_type: f64
+    event_name: MIXTURE1_SET
+    interpolate: Default
+  -
+    type: NumSet
+    var_name: A:ELEVATOR POSITION
+    var_units: Position 16k
+    var_type: f64
+    event_name: AXIS_ELEVATOR_SET
+    interpolate: Invert
+  -
+    type: NumSet
+    var_name: A:AILERON POSITION
+    var_units: Position 16k
+    var_type: f64
+    event_name: AXIS_AILERONS_SET
+    interpolate: Invert
+  -
+    type: NumSet
+    var_name: A:RUDDER POSITION
+    var_units: Position 16k
+    var_type: f64
+    event_name: AXIS_RUDDER_SET
+    interpolate: Invert
+  -
+    type: NumSet
+    var_name: A:BRAKE LEFT POSITION
+    var_units: Position 16k
+    var_type: f64
+    event_name: AXIS_LEFT_BRAKE_SET
+    unreliable: true
+  -
+    type: NumSet
+    var_name: A:BRAKE RIGHT POSITION
+    var_units: Position 16k
+    var_type: f64
+    event_name: AXIS_RIGHT_BRAKE_SET
+    unreliable: true
+
+server:
+  - # Fuel quantities
+    type: var
+    var_name: A:FUEL TANK CENTER LEVEL
+    var_units: Percent
+    var_type: f64
+    unreliable: true
+
+ignore:
+ - WasmInstrument
